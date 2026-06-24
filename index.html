@@ -1,0 +1,1781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Padaria Batroun LTDA - Pães artesanais, confeitaria, café especial e delivery no Rio de Janeiro. Tradição e qualidade desde 1995. Peça online!">
+    <meta name="robots" content="index, follow">
+    <title>Padaria Batroun LTDA - Pães Artesanais, Confeitaria e Café no Rio de Janeiro</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --caramelo: #C4956A;
+            --caramelo-claro: #D4A87C;
+            --marrom: #5C3A2E;
+            --marrom-escuro: #3E2419;
+            --marrom-profundo: #2C1A10;
+            --laranja-queimado: #D4783B;
+            --laranja-vibrante: #E8853B;
+            --bege: #F5EFE6;
+            --bege-claro: #FAF7F2;
+            --off-white: #FFFCF8;
+            --branco: #FFFFFF;
+            --dourado: #E8C97A;
+            --cinza-escuro: #2B2B2B;
+            --cinza-texto: #5D5D5D;
+            --sombra-suave: 0 4px 20px rgba(60, 30, 15, 0.08);
+            --sombra-media: 0 8px 32px rgba(60, 30, 15, 0.12);
+            --sombra-card: 0 4px 16px rgba(60, 30, 15, 0.10);
+            --borda-arredondada: 20px;
+            --borda-arredondada-lg: 28px;
+            --borda-arredondada-xl: 36px;
+            --transicao: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --fonte-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            --fonte-corpo: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--fonte-corpo);
+            background-color: var(--off-white);
+            color: var(--marrom);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* ==================== HEADER ==================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 14px 0;
+            transition: all 400ms ease;
+            background: transparent;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 2px 24px rgba(60, 30, 15, 0.10);
+            padding: 8px 0;
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo-link {
+            flex-shrink: 0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--laranja-queimado);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: white;
+            flex-shrink: 0;
+            transition: var(--transicao);
+        }
+
+        .logo-text {
+            font-family: var(--fonte-display);
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--marrom);
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+            transition: color 400ms ease;
+        }
+
+        .header.scrolled .logo-text {
+            color: var(--marrom-escuro);
+        }
+        .header:not(.scrolled) .logo-text {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .header:not(.scrolled) .logo-icon {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--marrom);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color var(--transicao);
+            padding: 4px 0;
+        }
+
+        .header:not(.scrolled) .nav-desktop a {
+            color: #fff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 2px;
+            background: var(--laranja-queimado);
+            border-radius: 2px;
+            transition: transform var(--transicao);
+            transform-origin: center;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--laranja-queimado) !important;
+            text-shadow: none !important;
+        }
+        .nav-desktop a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .btn-header-cta {
+            background: var(--laranja-queimado);
+            color: #fff !important;
+            text-shadow: none !important;
+            padding: 11px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all var(--transicao);
+            white-space: nowrap;
+            animation: pulse-cta 2.5s ease-in-out infinite;
+            box-shadow: 0 4px 16px rgba(212, 120, 59, 0.35);
+        }
+
+        .btn-header-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 24px rgba(212, 120, 59, 0.5);
+            background: var(--laranja-vibrante);
+            color: #fff !important;
+        }
+        .btn-header-cta::after {
+            display: none !important;
+        }
+
+        @keyframes pulse-cta {
+            0%,
+            100% {
+                box-shadow: 0 4px 16px rgba(212, 120, 59, 0.35);
+            }
+            50% {
+                box-shadow: 0 4px 28px rgba(212, 120, 59, 0.6), 0 0 0 8px rgba(212, 120, 59, 0.08);
+            }
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 26px;
+            height: 2.5px;
+            background: var(--marrom);
+            border-radius: 3px;
+            transition: all var(--transicao);
+            display: block;
+        }
+        .header:not(.scrolled) .hamburger span {
+            background: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background: var(--marrom) !important;
+            box-shadow: none !important;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+            background: var(--marrom) !important;
+            box-shadow: none !important;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transicao);
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--marrom);
+            font-family: var(--fonte-display);
+            transition: color var(--transicao);
+        }
+        .mobile-menu a:hover {
+            color: var(--laranja-queimado);
+        }
+        .mobile-menu .btn-header-cta {
+            font-family: var(--fonte-corpo);
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            animation: none;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .hero-slide:nth-child(1) {
+            background-image: linear-gradient(180deg, rgba(44, 26, 16, 0.55) 0%, rgba(92, 58, 46, 0.5) 40%, rgba(245, 239, 230, 0.7) 100%), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1400&q=80');
+            background-position: center 35%;
+        }
+
+        .hero-slide:nth-child(2) {
+            background-image: linear-gradient(180deg, rgba(44, 26, 16, 0.55) 0%, rgba(92, 58, 46, 0.5) 40%, rgba(245, 239, 230, 0.7) 100%), url('https://images.unsplash.com/photo-1555507036-ab1f4038024a?w=1400&q=80');
+            background-position: center 40%;
+        }
+
+        .hero-slide:nth-child(3) {
+            background-image: linear-gradient(180deg, rgba(44, 26, 16, 0.55) 0%, rgba(92, 58, 46, 0.5) 40%, rgba(245, 239, 230, 0.7) 100%), url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=1400&q=80');
+            background-position: center 30%;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            z-index: 2;
+            padding: 20px;
+            max-width: 700px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-family: var(--fonte-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            font-weight: 300;
+            margin-bottom: 28px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transicao);
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--laranja-queimado);
+            color: #fff;
+            box-shadow: 0 4px 18px rgba(212, 120, 59, 0.4);
+        }
+        .btn-primary:hover {
+            background: var(--laranja-vibrante);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(212, 120, 59, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--marrom-escuro);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+        .btn-secondary:hover {
+            background: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .hero-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all var(--transicao);
+            border: 2px solid transparent;
+        }
+        .hero-dot.active {
+            background: var(--laranja-queimado);
+            border-color: #fff;
+            width: 12px;
+            height: 12px;
+            box-shadow: 0 0 8px rgba(212, 120, 59, 0.6);
+        }
+
+        .hero-arrows {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .hero-arrow {
+            pointer-events: all;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--marrom);
+            transition: all var(--transicao);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            backdrop-filter: blur(4px);
+        }
+        .hero:hover .hero-arrow {
+            opacity: 1;
+        }
+        .hero-arrow:hover {
+            background: #fff;
+            box-shadow: var(--sombra-media);
+        }
+
+        /* ==================== FAIXA DE CONFIANÇA ==================== */
+        .trust-strip {
+            background: var(--branco);
+            padding: 32px 20px;
+            position: relative;
+            z-index: 5;
+            margin-top: -8px;
+        }
+
+        .trust-strip-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-card {
+            background: var(--bege-claro);
+            border-radius: var(--borda-arredondada);
+            padding: 20px 24px;
+            text-align: center;
+            flex: 1;
+            min-width: 180px;
+            max-width: 280px;
+            box-shadow: var(--sombra-card);
+            transition: all var(--transicao);
+            border: 1px solid rgba(196, 149, 106, 0.15);
+        }
+        .trust-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-media);
+            border-color: var(--caramelo);
+        }
+        .trust-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+        .trust-card h4 {
+            font-family: var(--fonte-display);
+            font-size: 1.1rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 4px;
+        }
+        .trust-card p {
+            font-size: 0.85rem;
+            color: var(--cinza-texto);
+        }
+
+        /* ==================== SEÇÕES GERAIS ==================== */
+        .section {
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--fonte-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            text-align: center;
+            color: var(--marrom-escuro);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--cinza-texto);
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            font-weight: 400;
+        }
+
+        /* ==================== SOBRE NÓS ==================== */
+        .about-section {
+            background: var(--bege-claro);
+            position: relative;
+        }
+
+        .about-wave {
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .about-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 50px;
+            fill: var(--off-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: var(--borda-arredondada-lg);
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--borda-arredondada-lg);
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 2px solid rgba(196, 149, 106, 0.35);
+            border-radius: calc(var(--borda-arredondada-lg) - 4px);
+            pointer-events: none;
+        }
+
+        .about-text h3 {
+            font-family: var(--fonte-display);
+            font-size: 1.8rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 16px;
+        }
+        .about-text p {
+            color: var(--cinza-texto);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .value-card {
+            background: var(--branco);
+            padding: 20px 16px;
+            border-radius: var(--borda-arredondada);
+            text-align: center;
+            box-shadow: var(--sombra-card);
+            border-left: 3px solid transparent;
+            transition: all var(--transicao);
+            cursor: default;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--laranja-queimado);
+            box-shadow: var(--sombra-media);
+        }
+        .value-card .v-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .value-card h5 {
+            font-family: var(--fonte-display);
+            font-size: 1rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 4px;
+        }
+        .value-card p {
+            font-size: 0.8rem;
+            color: var(--cinza-texto);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* ==================== CARDÁPIO ==================== */
+        .menu-section {
+            background: var(--branco);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .menu-card {
+            background: var(--branco);
+            border-radius: var(--borda-arredondada-lg);
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            transition: all var(--transicao);
+            cursor: pointer;
+            border: 1px solid rgba(196, 149, 106, 0.1);
+            position: relative;
+        }
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--sombra-media);
+            border-color: var(--caramelo-claro);
+        }
+        .menu-card-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .menu-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .menu-card:hover .menu-card-image img {
+            transform: scale(1.1);
+        }
+        .menu-card-image .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(44, 26, 16, 0.7) 100%);
+            z-index: 1;
+        }
+        .menu-card-image .icon-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            z-index: 2;
+        }
+        .menu-card-body {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .menu-card-body h4 {
+            font-family: var(--fonte-display);
+            font-size: 1.2rem;
+            color: var(--marrom-escuro);
+            margin-bottom: 8px;
+        }
+        .menu-card-body p {
+            font-size: 0.9rem;
+            color: var(--cinza-texto);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+        .menu-card-body .price {
+            font-weight: 700;
+            color: var(--laranja-queimado);
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .btn-whatsapp-sm {
+            display: inline-block;
+            background: #25D366;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transicao);
+        }
+        .btn-whatsapp-sm:hover {
+            background: #1fb855;
+            transform: scale(1.03);
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+        }
+
+        /* ==================== DEPOIMENTOS ==================== */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--laranja-queimado) 0%, var(--caramelo) 50%, var(--marrom) 100%);
+            padding: 80px 20px;
+        }
+        .testimonials-section .section-title {
+            color: #fff;
+        }
+        .testimonials-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .testimonial-main {
+            max-width: 700px;
+            margin: 0 auto 32px;
+            background: var(--branco);
+            border-radius: var(--borda-arredondada-xl);
+            padding: 36px 32px;
+            text-align: center;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .testimonial-main .stars {
+            font-size: 1.5rem;
+            color: #F5A623;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
+        }
+        .testimonial-main blockquote {
+            font-family: var(--fonte-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--marrom-escuro);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            border: none;
+            padding: 0;
+        }
+        .testimonial-main .author {
+            font-weight: 600;
+            color: var(--marrom);
+        }
+        .testimonial-main .author span {
+            font-weight: 400;
+            color: var(--cinza-texto);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-mini-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .testimonial-mini {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(6px);
+            border-radius: var(--borda-arredondada);
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 260px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            transition: all var(--transicao);
+        }
+        .testimonial-mini:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+        }
+        .testimonial-mini .stars {
+            color: #F5A623;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+        .testimonial-mini p {
+            font-size: 0.85rem;
+            color: var(--marrom);
+            line-height: 1.5;
+            font-style: italic;
+        }
+        .testimonial-mini .author {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--marrom-escuro);
+            margin-top: 6px;
+        }
+
+        /* ==================== FAQ ==================== */
+        .faq-section {
+            background: var(--bege-claro);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: var(--branco);
+            border-radius: var(--borda-arredondada);
+            margin-bottom: 12px;
+            box-shadow: var(--sombra-card);
+            overflow: hidden;
+            transition: all var(--transicao);
+            border: 1px solid rgba(196, 149, 106, 0.1);
+        }
+        .faq-question {
+            padding: 18px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--marrom-escuro);
+            user-select: none;
+            transition: background var(--transicao);
+        }
+        .faq-question:hover {
+            background: rgba(196, 149, 106, 0.06);
+        }
+        .faq-question .plus {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--caramelo-claro);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform var(--transicao);
+            flex-shrink: 0;
+        }
+        .faq-item.open .faq-question .plus {
+            transform: rotate(45deg);
+            background: var(--laranja-queimado);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 24px;
+            color: var(--cinza-texto);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 18px;
+        }
+
+        /* ==================== CTA FINAL ==================== */
+        .cta-final {
+            background: var(--marrom-profundo);
+            padding: 70px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath fill='%23F5EFE6' d='M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,0 L0,0 Z'%3E%3C/path%3E%3C/svg%3E") no-repeat top center;
+            background-size: cover;
+        }
+        .cta-final h2 {
+            font-family: var(--fonte-display);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .cta-final p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 24px;
+            font-size: 1.05rem;
+        }
+        .cta-final .newsletter-form {
+            display: flex;
+            gap: 10px;
+            max-width: 450px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cta-final input[type="email"] {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all var(--transicao);
+        }
+        .cta-final input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.55);
+        }
+        .cta-final input[type="email"]:focus {
+            border-color: var(--dourado);
+            background: rgba(255, 255, 255, 0.18);
+        }
+        .cta-final .btn-primary {
+            background: var(--dourado);
+            color: var(--marrom-profundo);
+            box-shadow: 0 4px 18px rgba(232, 201, 122, 0.4);
+        }
+        .cta-final .btn-primary:hover {
+            background: #f0d68a;
+            box-shadow: 0 6px 24px rgba(232, 201, 122, 0.55);
+        }
+
+        /* ==================== RODAPÉ ==================== */
+        .footer {
+            background: var(--cinza-escuro);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 48px 20px 24px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        .footer-col h4 {
+            font-family: var(--fonte-display);
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-col p,
+        .footer-col a {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color var(--transicao);
+        }
+        .footer-col a:hover {
+            color: var(--dourado);
+        }
+        .footer-col .cnpj {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 8px;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all var(--transicao);
+            text-decoration: none;
+        }
+        .footer-social a:hover {
+            background: var(--laranja-queimado);
+            color: #fff;
+            transform: scale(1.1);
+        }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 32px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ==================== BOTÃO WHATSAPP FLUTUANTE ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            background: #25D366;
+            color: #fff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+            text-decoration: none;
+            transition: all var(--transicao);
+            animation: float-bounce 2s ease-in-out infinite;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-tooltip {
+            position: fixed;
+            bottom: 88px;
+            right: 28px;
+            z-index: 999;
+            background: #fff;
+            color: var(--marrom);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: var(--sombra-media);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity var(--transicao);
+            white-space: nowrap;
+        }
+        .whatsapp-float:hover+.whatsapp-tooltip,
+        .whatsapp-tooltip.show {
+            opacity: 1;
+        }
+
+        @keyframes float-bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* ==================== RESPONSIVIDADE ==================== */
+        @media (max-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .values-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-desktop {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                height: 80vh;
+                min-height: 500px;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-content p {
+                font-size: 0.95rem;
+            }
+            .hero-arrows {
+                display: none;
+            }
+            .menu-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .trust-strip-container {
+                gap: 16px;
+            }
+            .trust-card {
+                min-width: 140px;
+                flex: 1 1 40%;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 24px auto 0;
+            }
+            .testimonial-mini-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            .testimonial-mini {
+                max-width: 100%;
+                min-width: auto;
+                width: 100%;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-social {
+                justify-content: center;
+            }
+            .section {
+                padding: 56px 16px;
+            }
+            .cta-final .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-final input[type="email"] {
+                width: 100%;
+                max-width: 350px;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+            }
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 18px;
+            }
+            .trust-card {
+                min-width: 120px;
+                padding: 14px 12px;
+                font-size: 0.8rem;
+            }
+            .trust-card .icon {
+                font-size: 2rem;
+            }
+        }
+
+        /* Utility for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Bakery",
+            "name": "Padaria Batroun LTDA",
+            "legalName": "Padaria Batroun LTDA",
+            "taxID": "36.418.216/0001-19",
+            "description": "Padaria artesanal no Rio de Janeiro - pães de fermentação natural, confeitaria, café especial e delivery.",
+            "url": "https://www.padariabatroun.com.br",
+            "telephone": "+5521999999999",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Rua Visconde de Pirajá, 500",
+                "addressLocality": "Rio de Janeiro",
+                "addressRegion": "RJ",
+                "postalCode": "22410-002",
+                "addressCountry": "BR"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -22.983,
+                "longitude": -43.218
+            },
+            "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "06:30", "closes": "21:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "07:00", "closes": "15:00" }
+            ],
+        "priceRange": "$$",
+        "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "327",
+            "bestRating": "5"
+        }
+    }
+</script>
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#hero" class="logo-link" aria-label="Padaria Batroun - Início">
+                <div class="logo-icon">🥐</div>
+                <span class="logo-text">Padaria<br>Batroun</span>
+            </a>
+            <nav>
+                <ul class="nav-desktop" id="navDesktop">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20encomendar%20pela%20Padaria%20Batroun!" class="btn-header-cta" target="_blank" rel="noopener noreferrer" aria-label="Encomendar Agora via WhatsApp">Encomendar Agora</a>
+                <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#hero" class="mobile-link">Início</a>
+            <a href="#sobre" class="mobile-link">Sobre Nós</a>
+            <a href="#cardapio" class="mobile-link">Cardápio</a>
+            <a href="#depoimentos" class="mobile-link">Depoimentos</a>
+            <a href="#contato" class="mobile-link">Contato</a>
+            <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20encomendar%20pela%20Padaria%20Batroun!" class="btn-header-cta" target="_blank" rel="noopener noreferrer">Encomendar Agora</a>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero" aria-label="Banner principal da padaria">
+        <div class="hero-slide active" id="slide1">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Pão quentinho todo dia, feito com amor artesanal</h1>
+                <p>Fermentação natural, forno a lenha e aquele perfume inconfundível de padaria de verdade.</p>
+                <div class="hero-buttons">
+                    <a href="#cardapio" class="btn-primary">Ver Cardápio</a>
+                    <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20encomendar%20pela%20Padaria%20Batroun!" class="btn-secondary" target="_blank" rel="noopener noreferrer">Encomende Agora</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slide" id="slide2">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Do trigo à mesa: qualidade que você sente</h1>
+                <p>Pães de fermentação natural, bolos caseiros e café especial. Tudo com entrega na sua casa.</p>
+                <div class="hero-buttons">
+                    <a href="#cardapio" class="btn-primary">Ver Produtos</a>
+                    <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20encomendar%20pela%20Padaria%20Batroun!" class="btn-secondary" target="_blank" rel="noopener noreferrer">Pedir Agora</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slide" id="slide3">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Tradição carioca desde 1995</h1>
+                <p>Atendendo com carinho a Zona Sul e Barra. Venha nos visitar ou peça delivery!</p>
+                <div class="hero-buttons">
+                    <a href="#contato" class="btn-primary">Como Chegar</a>
+                    <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Padaria%20Batroun!" class="btn-secondary" target="_blank" rel="noopener noreferrer">Fale Conosco</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-dots" id="heroDots">
+            <span class="hero-dot active" data-slide="0"></span>
+            <span class="hero-dot" data-slide="1"></span>
+            <span class="hero-dot" data-slide="2"></span>
+        </div>
+        <div class="hero-arrows">
+            <button class="hero-arrow" id="heroPrev" aria-label="Slide anterior">◀</button>
+            <button class="hero-arrow" id="heroNext" aria-label="Próximo slide">▶</button>
+        </div>
+    </section>
+
+    <!-- ==================== FAIXA DE CONFIANÇA ==================== -->
+    <section class="trust-strip" aria-label="Diferenciais">
+        <div class="trust-strip-container" data-aos="fade-up" data-aos-duration="600">
+            <div class="trust-card">
+                <div class="icon">🥐</div>
+                <h4>Pães Artesanais Diários</h4>
+                <p>Assados toda manhã com massa madre</p>
+            </div>
+            <div class="trust-card">
+                <div class="icon">🚚</div>
+                <h4>Entrega Grátis RJ*</h4>
+                <p>Zona Sul, Barra e Centro</p>
+            </div>
+            <div class="trust-card">
+                <div class="icon">⭐</div>
+                <h4>4,9 estrelas no Google</h4>
+                <p>+300 avaliações de clientes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SOBRE NÓS ==================== -->
+    <section class="section about-section" id="sobre" aria-label="Sobre a Padaria Batroun">
+        <div class="about-wave">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none"><path d="M0,25 C300,0 600,50 1200,25 L1200,0 L0,0 Z" fill="var(--off-white)"></path></svg>
+        </div>
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="700">
+                    <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?w=600&q=80" alt="Equipe da Padaria Batroun no balcão com pães artesanais e café" loading="lazy" width="600" height="450">
+                </div>
+                <div class="about-text" data-aos="fade-left" data-aos-duration="700">
+                    <h3>Padaria Batroun LTDA – O sabor da tradição carioca</h3>
+                    <p>Nascidos no coração do Rio de Janeiro, somos uma empresa familiar que respira o amor pela panificação artesanal. Nossa jornada começou em Ipanema, com um simples forno a lenha e a receita secreta do pão de fermentação natural da família. Hoje, nos orgulhamos de oferecer uma estrutura completa, com cafeteria, confeitaria, entregas e kits para café da manhã. Cada fornada é nossa maior conquista.</p>
+                    <p>Somos o <strong>CNPJ 36.418.216/0001-19</strong>, uma empresa séria, estabelecida e comprometida com o prazer de comer bem.</p>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="v-icon">🎯</div>
+                            <h5>Missão</h5>
+                            <p>Levar pão fresco e felicidade à mesa de cada cliente.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="v-icon">👁️</div>
+                            <h5>Visão</h5>
+                            <p>Ser a padaria artesanal mais amada do Rio.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="v-icon">❤️</div>
+                            <h5>Valores</h5>
+                            <p>Qualidade, tradição, carinho e transparência.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CARDÁPIO ==================== -->
+    <section class="section menu-section" id="cardapio" aria-label="Cardápio">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Do pão ao café, tudo fresquinho para você</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Conheça nossas especialidades preparadas diariamente</p>
+            <div class="menu-grid">
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1549931319-a545799f3a2e?w=500&q=80" alt="Pães artesanais saindo do forno" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">🍞</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Pães Artesanais</h4>
+                        <p>Fermentação natural, massa madre, grãos selecionados. Pão italiano, australiano, multicereais e mais.</p>
+                        <span class="price">A partir de R$ 12,90</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20encomendar%20P%C3%A3es%20Artesanais%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500&q=80" alt="Bolos e doces na vitrine da confeitaria" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">🍰</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Confeitaria</h4>
+                        <p>Bolos caseiros, tortas, brigadeiros gourmet e sobremesas. Encomendas para festas com 48h.</p>
+                        <span class="price">A partir de R$ 28,90</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20encomendar%20Confeitaria%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80" alt="Café especial sendo preparado" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">☕</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Café Especial</h4>
+                        <p>Grãos selecionados, espresso, cappuccino, latte e chocolates quentes cremosos. Torrefação própria.</p>
+                        <span class="price">A partir de R$ 6,90</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20pedir%20Caf%C3%A9%20Especial%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1603073163308-9654c3fb70b5?w=500&q=80" alt="Salgados assados e fritos" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">🥟</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Salgados & Lanches</h4>
+                        <p>Empada, coxinha, quiche, pão de queijo recheado. Perfeitos para um lanche rápido ou receber em casa.</p>
+                        <span class="price">A partir de R$ 5,90</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20pedir%20Salgados%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1536392629827-2e35430e7e3c?w=500&q=80" alt="Cesta de café da manhã com pães e frutas" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">🧺</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Café da Manhã & Kits</h4>
+                        <p>Monte o café perfeito para presentear. Kits com entrega agendada na porta de casa.</p>
+                        <span class="price">A partir de R$ 59,90</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20encomendar%20Kit%20Caf%C3%A9%20da%20Manh%C3%A3%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+                <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="menu-card-image">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&q=80" alt="Mesa de doces para eventos" loading="lazy">
+                        <div class="overlay"></div>
+                        <div class="icon-badge">🎉</div>
+                    </div>
+                    <div class="menu-card-body">
+                        <h4>Encomendas & Eventos</h4>
+                        <p>Bolos de casamento, mesa de doces, coffee break. Cardápio personalizado com consultoria.</p>
+                        <span class="price">Sob consulta</span>
+                        <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20quero%20saber%20sobre%20Encomendas%20para%20Eventos%20da%20Padaria%20Batroun!" class="btn-whatsapp-sm" target="_blank" rel="noopener noreferrer">🛒 Pedir via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DEPOIMENTOS ==================== -->
+    <section class="testimonials-section" id="depoimentos" aria-label="Depoimentos de clientes">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">O que nossos clientes dizem 🍞</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">+10.000 pães entregues com amor e carinho</p>
+            <div class="testimonial-main" data-aos="zoom-in" data-aos-duration="600">
+                <div class="stars">★★★★★</div>
+                <blockquote>"A melhor padaria do Rio! O pão de fermentação natural é divino e o atendimento é impecável. Virei freguesa de carteirinha!"</blockquote>
+                <p class="author">Ana Clara <span>– Copacabana, RJ</span></p>
+            </div>
+            <div class="testimonial-mini-grid">
+                <div class="testimonial-mini" data-aos="fade-up" data-aos-delay="150">
+                    <div class="stars">★★★★★</div>
+                    <p>"O kit café da manhã surpreendeu! Entrega pontual e tudo fresquíssimo."</p>
+                    <p class="author">Ricardo M. – Barra da Tijuca</p>
+                </div>
+                <div class="testimonial-mini" data-aos="fade-up" data-aos-delay="250">
+                    <div class="stars">★★★★★</div>
+                    <p>"Pão italiano perfeito, crocante por fora e macio por dentro. Recomendo demais!"</p>
+                    <p class="author">Juliana S. – Ipanema</p>
+                </div>
+                <div class="testimonial-mini" data-aos="fade-up" data-aos-delay="350">
+                    <div class="stars">★★★★★</div>
+                    <p>"Bolo de aniversário lindo e delicioso. Confeiteira nota mil!"</p>
+                    <p class="author">Carlos E. – Leblon</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:28px;" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://g.page/placeholder-batroun" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="background:rgba(255,255,255,0.9);color:var(--marrom-escuro);">⭐ Deixe sua avaliação no Google</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ==================== -->
+    <section class="section faq-section" id="faq" aria-label="Perguntas frequentes">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Tire suas dúvidas</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Respostas rápidas para as perguntas mais comuns</p>
+            <div class="faq-list" data-aos="fade-up" data-aos-delay="150">
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false">Vocês fazem entrega em toda a cidade?<span class="plus">+</span></div>
+                    <div class="faq-answer">Entregamos na Zona Sul, Barra da Tijuca e Centro do Rio de Janeiro. Consulte nosso WhatsApp para verificar se atendemos seu bairro — estamos expandindo nossa área de cobertura!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false">Tem opções sem glúten ou veganas?<span class="plus">+</span></div>
+                    <div class="faq-answer">Sim! Temos uma linha de pães e doces sem glúten, zero lactose e veganos. Consulte nosso cardápio ou chame no WhatsApp para saber as opções do dia.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false">Aceitam encomendas para o mesmo dia?<span class="plus">+</span></div>
+                    <div class="faq-answer">Encomendas de bolo decorado precisam de 48h de antecedência. Para pães e kits, dependendo do horário e disponibilidade, conseguimos atender no mesmo dia. Consulte-nos!</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" tabindex="0" role="button" aria-expanded="false">Como funciona o café da manhã delivery?<span class="plus">+</span></div>
+                    <div class="faq-answer">Você monta seu kit no WhatsApp, agenda a data e horário de entrega, e nós entregamos fresquinho na porta da sua casa. Aceitamos pagamento via PIX, cartão ou dinheiro.</div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:24px;" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20ainda%20tenho%20d%C3%BAvidas%20sobre%20a%20Padaria%20Batroun!" class="btn-primary" target="_blank" rel="noopener noreferrer">💬 Ainda tem dúvidas? Chame no WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA FINAL ==================== -->
+    <section class="cta-final" id="cta-final" aria-label="Oferta especial">
+        <div class="section-container" data-aos="fade-up" data-aos-duration="700">
+            <h2>Seu café da manhã merece o melhor. Peça agora e ganhe 10% off na primeira compra!</h2>
+            <p>Promoção válida para novos clientes. Use o cupom <strong>PADARIA10</strong> no WhatsApp ou na loja física.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Cadastro simulado com sucesso! Use o cupom PADARIA10.');">
+                <input type="email" placeholder="Seu melhor e-mail para receber o cupom" required aria-label="E-mail para receber cupom de desconto">
+                <button type="submit" class="btn-primary">Quero Aproveitar</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== CONTATO / LOCALIZAÇÃO ==================== -->
+    <section class="section" id="contato" style="background:var(--branco);" aria-label="Localização e contato">
+        <div class="section-container">
+            <h2 class="section-title" data-aos="fade-up">Estamos te esperando com pão quentinho no coração do Rio</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Venha nos visitar ou peça delivery</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;" data-aos="fade-up" data-aos-delay="200">
+                <div style="border-radius:var(--borda-arredondada-lg);overflow:hidden;box-shadow:var(--sombra-media);min-height:350px;background:#eee;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.954!2d-43.218!3d-22.983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU4JzU4LjgiUyA0M8KwMTMnMDQuOCJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização da Padaria Batroun no Google Maps"></iframe>
+                </div>
+                <div style="padding:10px;">
+                    <p style="font-size:1.1rem;margin-bottom:8px;"><strong>📍 Endereço:</strong> Rua Visconde de Pirajá, 500 – Ipanema, Rio de Janeiro – RJ, CEP 22410-002</p>
+                    <p style="font-size:1.1rem;margin-bottom:8px;"><strong>📞 Telefone:</strong> (21) 99999-9999</p>
+                    <p style="font-size:1.1rem;margin-bottom:8px;"><strong>🕐 Horário:</strong> Seg a Sáb 06h30–21h | Dom 07h–15h</p>
+                    <p style="font-size:1.1rem;margin-bottom:16px;"><strong>📍 Ponto de referência:</strong> Próximo ao metrô General Osório</p>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=-22.983,-43.218" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-block;">🗺️ Traçar rota no Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RODAPÉ ==================== -->
+    <footer class="footer" aria-label="Rodapé">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>🥐 Padaria Batroun</h4>
+                <p>Padaria Batroun LTDA</p>
+                <p class="cnpj">CNPJ: 36.418.216/0001-19</p>
+                <p style="font-size:0.8rem;margin-top:4px;">Tradição e qualidade desde 1995.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Úteis</h4>
+                <a href="#hero">Início</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#cardapio">Cardápio</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#contato">Contato</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <p>📍 Rua Visconde de Pirajá, 500 – Ipanema</p>
+                <p>📞 (21) 99999-9999</p>
+                <p>✉️ contato@padariabatroun.com.br</p>
+                <a href="https://wa.me/5521999999999" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="footer-social">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">📘</a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">🎵</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 Padaria Batroun LTDA – Todos os direitos reservados. Desenvolvido com amor e muito pão quentinho. 🍞
+        </div>
+    </footer>
+
+    <!-- ==================== BOTÃO WHATSAPP FLUTUANTE ==================== -->
+    <a href="https://wa.me/5521999999999?text=Ol%C3%A1%2C%20preciso%20de%20ajuda%20na%20Padaria%20Batroun!%20%F0%9F%8D%9E" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">💬</a>
+    <div class="whatsapp-tooltip" id="whatsappTooltip">Precisa de ajuda? 🍞</div>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic',
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 60) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+        hamburger.addEventListener('click', function() {
+            const isActive = mobileMenu.classList.contains('active');
+            if (isActive) {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            } else {
+                mobileMenu.classList.add('active');
+                hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Hero Slider
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+        const prevBtn = document.getElementById('heroPrev');
+        const nextBtn = document.getElementById('heroNext');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function goToSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            currentSlide = (index + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function startAutoSlide() {
+            stopAutoSlide();
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) clearInterval(slideInterval);
+        }
+
+        nextBtn.addEventListener('click', () => { nextSlide();
+            startAutoSlide(); });
+        prevBtn.addEventListener('click', () => { prevSlide();
+            startAutoSlide(); });
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-slide'));
+                goToSlide(index);
+                startAutoSlide();
+            });
+        });
+
+        // Pausar ao passar o mouse
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', stopAutoSlide);
+        heroSection.addEventListener('mouseleave', startAutoSlide);
+        heroSection.addEventListener('touchstart', stopAutoSlide, { passive: true });
+        heroSection.addEventListener('touchend', startAutoSlide);
+
+        startAutoSlide();
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                const isOpen = item.classList.contains('open');
+                // Fechar todos
+                faqItems.forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+                // Abrir o clicado se não estava aberto
+                if (!isOpen) {
+                    item.classList.add('open');
+                    question.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // WhatsApp tooltip
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+        const whatsappTooltip = document.getElementById('whatsappTooltip');
+        if (whatsappFloat && whatsappTooltip) {
+            // Mostrar tooltip após 3 segundos
+            setTimeout(() => {
+                whatsappTooltip.classList.add('show');
+                setTimeout(() => {
+                    whatsappTooltip.classList.remove('show');
+                }, 4000);
+            }, 3000);
+            whatsappFloat.addEventListener('mouseenter', () => whatsappTooltip.classList.add('show'));
+            whatsappFloat.addEventListener('mouseleave', () => whatsappTooltip.classList.remove('show'));
+        }
+
+        // Lazy load para imagens (garantia adicional)
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            if ('loading' in HTMLImageElement.prototype) {
+                // Navegador suporta lazy loading nativo
+            } else {
+                // Fallback poderia ser implementado aqui se necessário
+            }
+        });
+
+        console.log('🍞 Padaria Batroun LTDA - CNPJ 36.418.216/0001-19 - Site carregado com sucesso!');
+    </script>
+</body>
+</html>
